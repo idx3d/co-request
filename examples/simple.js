@@ -1,5 +1,5 @@
 var co = require('co')
-  , request = require('../')
+  , request = require('../');
 
 co(function* () {
   var data = yield request('http://google.com');
