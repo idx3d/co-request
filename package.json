@@ -1,0 +1,25 @@
+{
+  "name": "co-request",
+  "description": "co-request",
+  "main": "./",
+  "author": {
+    "name": "Dennis Leukhin"
+  },
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stonedmind/co-request.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stonedmind/co-request/issues"
+  },
+  "dependencies": {
+    "request": "*"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/stonedmind/co-request/raw/master/LICENSE"
+    }
+  ]
+}
