@@ -3,6 +3,10 @@ co-request
 
 Simple wrapper to the request library for co-like interface (node.js generator based code).
 
+To install simply run:
+```bash
+npm install co-request
+```
 
 Require co first, also it will work on node v0.11.7 and newest only.
 
