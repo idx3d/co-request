@@ -23,7 +23,7 @@ var co = require('co')
   , request = require('co-request');
 
 co(function* () {
-  // You can also pass options object, see ttp://github.com/mikeal/request docs
+  // You can also pass options object, see http://github.com/mikeal/request docs
   var data = yield request('http://google.com'); 
   // yielded request call returns array of [response, body]
   var response = data[0];
