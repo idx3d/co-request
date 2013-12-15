@@ -31,7 +31,7 @@ co(function* () {
 
   console.log(response);
   console.log(body);
-});
+})();
 
 ```
 
