@@ -1,17 +1,19 @@
 {
   "name": "co-request",
-  "description": "co-request",
+  "description": "co-request thunkify wrapper for request",
   "main": "./",
   "author": {
-    "name": "Dennis Leukhin"
+    "name": "Dennis Leukhin",
+    "email": "postquagga@gmail.com",
+    "url": "pgq.me"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stonedmind/co-request.git"
+    "url": "https://github.com/postquagga/co-request.git"
   },
   "bugs": {
-    "url": "https://github.com/stonedmind/co-request/issues"
+    "url": "https://github.com/postquagga/co-request/issues"
   },
   "dependencies": {
     "request": "*"
@@ -19,7 +21,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/stonedmind/co-request/raw/master/LICENSE"
+      "url": "https://github.com/postquagga/co-request/raw/master/LICENSE"
     }
   ]
 }
