@@ -10,6 +10,10 @@ module.exports = requestThunk;
 
 function requestThunk (opts) {
   return function (done) {
-    request(opts, done);
+    request(opts, function (err, response, body) {
+      var result = response;
+      result.body = body;
+      done(err, result);
+    });
   };
 }

@@ -2,10 +2,10 @@ var co = require('co')
   , request = require('../');
 
 co(function* () {
-  var data = yield request('http://google.com');
-  var response = data[0];
-  var body = data[1];
+  var result = yield request('http://google.com');
+  var response = result;
+  var body = result.body;
 
-  console.log(response);
-  console.log(body);
-});
+  console.log('Response: ', response);
+  console.log('Body: ', body);
+})();
