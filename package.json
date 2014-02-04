@@ -4,16 +4,16 @@
   "main": "./",
   "author": {
     "name": "Dennis Leukhin",
-    "email": "postquagga@gmail.com",
+    "email": "dennis.leukhin@gmail.com",
     "url": "pgq.me"
   },
   "version": "0.1.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/postquagga/co-request.git"
+    "url": "https://github.com/leukhin/co-request.git"
   },
   "bugs": {
-    "url": "https://github.com/postquagga/co-request/issues"
+    "url": "https://github.com/leukhin/co-request/issues"
   },
   "dependencies": {
     "request": "*"
@@ -21,7 +21,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/postquagga/co-request/raw/master/LICENSE"
+      "url": "https://github.com/leukhin/co-request/raw/master/LICENSE"
     }
   ]
 }
