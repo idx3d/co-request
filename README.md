@@ -31,7 +31,17 @@ co(function* () {
   console.log('Response: ', response);
   console.log('Body: ', body);
 })();
+```
 
+POST example:
+
+```js
+co(function* () {
+  var result = yield request({
+  	uri: 'http://google.com',
+  	method: 'POST'
+  });
+})();
 ```
 
 ##Gratitude##
