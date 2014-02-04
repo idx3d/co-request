@@ -8,6 +8,9 @@
     "url": "pgq.me"
   },
   "version": "0.1.2",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --harmony test/test.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/leukhin/co-request.git"
@@ -23,5 +26,11 @@
       "type": "MIT",
       "url": "https://github.com/leukhin/co-request/raw/master/LICENSE"
     }
-  ]
+  ],
+  "devDependencies": {
+    "co": "~3.0.2",
+    "nock": "~0.27.1",
+    "chai": "~1.8.1",
+    "mocha": "~1.16.2"
+  }
 }

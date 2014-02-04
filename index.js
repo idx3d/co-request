@@ -12,7 +12,11 @@ function requestThunk (opts) {
   return function (done) {
     request(opts, function (err, response, body) {
       var result = response;
-      result.body = body;
+
+      if (!err) {
+        result.body = body;
+      }
+
       done(err, result);
     });
   };
