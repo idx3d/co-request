@@ -51,5 +51,17 @@ describe('get', function() {
 				done();
 			})();
 		})
+
+		it('should throw exceptions', function(done) {
+		  co(function* () {
+			try {
+			  yield request("invalid url");
+			} catch(err) {
+			  assert.match(err.message, /Invalid URI/);
+			}
+
+			done();
+		  })();
+		})
 	})
 });
