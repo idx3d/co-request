@@ -2,6 +2,7 @@ co-request
 ==========
 
 Simple wrapper to the request library for co-like interface (node.js generator based code).
+You can use it with koa or co
 
 To install simply run:
 ```bash
@@ -43,6 +44,7 @@ co(function* () {
   });
 })();
 ```
+All methods of request listed in [Request docs](https://github.com/mikeal/request/blob/master/README.md)
 
 ##Gratitude##
 

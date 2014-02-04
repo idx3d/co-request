@@ -5,12 +5,20 @@
   "author": {
     "name": "Dennis Leukhin",
     "email": "dennis.leukhin@gmail.com",
-    "url": "pgq.me"
+    "url": "leukhin.org"
   },
-  "version": "0.1.2",
+  "version": "0.2.0",
   "scripts": {
     "test": "node_modules/.bin/mocha --harmony test/test.js"
   },
+  "keywords": [
+    "thunks",
+    "request",
+    "rest",
+    "koa",
+    "co",
+    "generators"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/leukhin/co-request.git"
