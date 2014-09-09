@@ -44,6 +44,21 @@ co(function* () {
   });
 })();
 ```
+
+To pipe request you should use small helper (thanks to [greim](https://github.com/greim)):
+
+```js
+function pipeRequest(readable, requestThunk){
+  return function(cb){
+    readable.pipe(requestThunk(cb));
+  }
+}
+
+//..and then:
+
+  var value = yield pipeRequest(this.req, request({...}));
+```
+
 All methods of request listed in [Request docs](https://github.com/mikeal/request/blob/master/README.md)
 
 ##Gratitude##
