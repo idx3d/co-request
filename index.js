@@ -8,12 +8,13 @@ var __slice = Array.prototype.slice;
  * @return {Function}
  */
 var thunkifyRequestMethod = function (fn) {
+  var context = this;
+
   return function () {
-    var args    = __slice.call(arguments);
-    var context = this;
+    var args = __slice.call(arguments);
 
     return function (done) {
-      // Concatinate the callback manually to avoid array arguments from co.
+      // Concatenate the callback manually to avoid array arguments from co.
       return fn.apply(context, args.concat(function (err, res) {
         done(err, res);
       }));
@@ -36,7 +37,7 @@ var thunkifyRequest = function (request) {
 
   // Attach all request methods.
   ['get', 'patch', 'post', 'put', 'head', 'del'].forEach(function (method) {
-    fn[method] = thunkifyRequestMethod(request[method]);
+    fn[method] = thunkifyRequestMethod.call(request, request[method]);
   });
 
   return fn;
