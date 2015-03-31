@@ -11,6 +11,17 @@ describe('get', function() {
       .get("/")
       .reply(200, {key: 'value'});
 
+    it('should allow passing options', function(done) {
+      co(function* () {
+        var result = yield request.get({ url: "http://example.com/" });
+        assert.equal(result.statusCode, 200);
+        assert.isObject(result);
+        assert.isString(result.body);
+        assert.equal(result.body, '{"key":"value"}');
+        done();
+      })();
+    });
+
     it('should get the json body as a string', function(done) {
       co(function* () {
         var result = yield request("http://example.com/");
