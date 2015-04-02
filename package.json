@@ -7,7 +7,7 @@
     "email": "dennis.leukhin@gmail.com",
     "url": "leukhin.org"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "test": "node_modules/.bin/mocha --harmony test/test.js"
   },
