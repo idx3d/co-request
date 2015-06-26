@@ -1,54 +1,62 @@
-var request = require('request');
-var __slice = Array.prototype.slice;
+"use strict";
+
+let request = require("request");
+let __slice = Array.prototype.slice;
 
 /**
- * Thunkify a request method.
+ * Promisify a request method.
  *
  * @param  {Function} fn
  * @return {Function}
  */
-var thunkifyRequestMethod = function (fn) {
-  var context = this;
+let promisifyRequestMethod = function (fn) {
+    let context = this;
 
-  return function () {
-    var args = __slice.call(arguments);
+    return function () {
+        let args = __slice.call(arguments); //Array.from(arguments) is not available.
 
-    return function (done) {
-      // Concatenate the callback manually to avoid array arguments from co.
-      return fn.apply(context, args.concat(function (err, res) {
-        done(err, res);
-      }));
-    };
-  };
+        return new Promise(function (resolve, reject) {
+
+            // Concatenate the callback manually to avoid array arguments from co.
+            return fn.apply(context, args.concat(function (err) {
+                if (err) {
+                    console.log(err);
+                    reject(err);
+                } else {
+                    resolve.apply(this, __slice.call(arguments, 1));
+                }
+            }));
+        });
+    }
 };
 
 /**
- * Thunkify a request function.
+ * Promisify a request function.
  *
  * @param  {Function} request
  * @return {Function}
  */
-var thunkifyRequest = function (request) {
-  var fn = thunkifyRequestMethod(request);
+let promisifyRequest = function (request) {
+    let fn = promisifyRequestMethod(request);
 
-  // Regular request methods that don't need be thunkified.
-  fn.jar    = request.jar;
-  fn.cookie = request.cookie;
+    // Regular request methods that don't need be promisified.
+    fn.jar    = request.jar;
+    fn.cookie = request.cookie;
 
-  // Attach all request methods.
-  ['get', 'patch', 'post', 'put', 'head', 'del'].forEach(function (method) {
-    fn[method] = thunkifyRequestMethod.call(request, request[method]);
-  });
+    // Attach all request methods.
+    ["get", "patch", "post", "put", "head", "del"].forEach(function (method) {
+        fn[method] = promisifyRequestMethod.call(request, request[method]);
+    });
 
-  return fn;
+    return fn;
 };
 
 /**
- * Export a thunkified request function.
+ * Export a promisified request function.
  *
  * @type {Function}
  */
-exports = module.exports = thunkifyRequest(request);
+exports = module.exports = promisifyRequest(request);
 
 /**
  * Export the Request instance.
@@ -58,19 +66,19 @@ exports = module.exports = thunkifyRequest(request);
 exports.Request = request.Request;
 
 /**
- * Export the defaults method and return a thunkified request instance.
+ * Export the defaults method and return a promisified request instance.
  *
  * @return {Function}
  */
 exports.defaults = function () {
-  return thunkifyRequest(request.defaults.apply(request, arguments));
+    return promisifyRequest(request.defaults.apply(request, arguments));
 };
 
 /**
- * Export the forever agent method and return a thunkified request instance.
+ * Export the forever agent method and return a promisified request instance.
  *
  * @return {Function}
  */
 exports.forever = function () {
-  return thunkifyRequest(request.forever.apply(request, arguments));
+    return promisifyRequest(request.forever.apply(request, arguments));
 };
