@@ -20,7 +20,6 @@ let promisifyRequestMethod = function (fn) {
             // Concatenate the callback manually to avoid array arguments from co.
             return fn.apply(context, args.concat(function (err) {
                 if (err) {
-                    console.log(err);
                     reject(err);
                 } else {
                     resolve.apply(this, __slice.call(arguments, 1));
