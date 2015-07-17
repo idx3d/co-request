@@ -1,6 +1,6 @@
 {
   "name": "co-request",
-  "description": "co-request thunkify wrapper for request",
+  "description": "co-request promisify wrapper for request",
   "main": "./",
   "author": {
     "name": "Dennis Leukhin",
@@ -12,7 +12,6 @@
     "test": "node_modules/.bin/mocha --harmony test/test.js"
   },
   "keywords": [
-    "thunks",
     "request",
     "rest",
     "koa",

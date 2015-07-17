@@ -20,28 +20,34 @@ node --harmony simple.js
 Simple example:
 
 ```js
-var co = require('co')
-  , request = require('co-request');
+"use strict";
+
+let co = require("co");
+let request = require("co-request");
 
 co(function* () {
   // You can also pass options object, see http://github.com/mikeal/request docs
-  var result = yield request('http://google.com'); 
-  var response = result;
-  var body = result.body;
+    let result = yield request("http://google.com"); 
+    let response = result;
+    let body = result.body;
 
-  console.log('Response: ', response);
-  console.log('Body: ', body);
-})();
+    console.log("Response: ", response);
+    console.log("Body: ", body);
+}).catch(function (err) {
+    console.err(err);
+});
 ```
 
 POST example:
 
 ```js
+"use strict";
+
 co(function* () {
-  var result = yield request({
-  	uri: 'http://google.com',
-  	method: 'POST'
-  });
+    let result = yield request({
+        uri: "http://google.com",
+        method: "POST"
+    });
 })();
 ```
 

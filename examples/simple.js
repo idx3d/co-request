@@ -1,12 +1,16 @@
 //Shows entire HTTP response and its body
 
-var co = require('co')
-  , request = require('../');
+"use strict";
+
+let co = require('co');
+let request = require('../');
 
 co(function* () {
-  var response = yield request('http://google.com');
-  var body = response.body;
+    let response = yield request('http://google.com');
+    let body = response.body;
 
-  console.log('Response: ', response);
-  console.log('Body: ', body);
-})();
+    console.log('Response: ', response);
+    console.log('Body: ', body);
+}).catch(function (err) {
+    console.err(err);
+});
