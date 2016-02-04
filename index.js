@@ -42,6 +42,16 @@ let promisifyRequest = function (request) {
     fn.jar    = request.jar;
     fn.cookie = request.cookie;
 
+    // Export the defaults method and return a promisified request instance.
+    fn.defaults = function () {
+        return promisifyRequest(request.defaults.apply(request, arguments));
+    };
+
+    // Export the forever agent method and return a promisified request instance.
+    fn.forever = function () {
+        return promisifyRequest(request.forever.apply(request, arguments));
+    };
+
     // Attach all request methods.
     ["get", "patch", "post", "put", "head", "del"].forEach(function (method) {
         fn[method] = promisifyRequestMethod.call(request, request[method]);
@@ -63,21 +73,3 @@ exports = module.exports = promisifyRequest(request);
  * @type {Function}
  */
 exports.Request = request.Request;
-
-/**
- * Export the defaults method and return a promisified request instance.
- *
- * @return {Function}
- */
-exports.defaults = function () {
-    return promisifyRequest(request.defaults.apply(request, arguments));
-};
-
-/**
- * Export the forever agent method and return a promisified request instance.
- *
- * @return {Function}
- */
-exports.forever = function () {
-    return promisifyRequest(request.forever.apply(request, arguments));
-};
