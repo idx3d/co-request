@@ -34,7 +34,7 @@ co(function* () {
     console.log("Response: ", response);
     console.log("Body: ", body);
 }).catch(function (err) {
-    console.err(err);
+    console.error(err);
 });
 ```
 
